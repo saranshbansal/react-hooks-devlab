@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import "./App.css";
-import Login from "./Login/Login";
-import Todo from "./Todo/Todo.jsx";
-import TodoForm from "./Todo/TodoForm";
-import Testimonials from "./Testimonials";
+import Todo from "./Todo.jsx";
+import TodoForm from "./TodoForm";
 
-function App() {
+function TodoList() {
   const [todos, setTodos] = useState([
     {
       text: "Learn about React",
@@ -45,7 +42,7 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <>
       <h2 className="title">To Do List (useState hook)</h2>
       <div className="todo-list">
         {todos.map((todo, index) => (
@@ -60,16 +57,8 @@ function App() {
         ))}
         <TodoForm addTodo={addTodo} />
       </div>
-
-      <hr />
-
-      <Login />
-
-      <hr />
-
-      <Testimonials />
-    </div>
+    </>
   );
 }
 
-export default App;
+export default TodoList;

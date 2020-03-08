@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { useFormState } from "../useFormState";
+import { useForm } from "../../_common/useForm";
 
 export default function Login() {
-  const [values, setValues] = useFormState({
+  const [values, setValues] = useForm({
     email: "",
     password: ""
   });
@@ -15,7 +15,7 @@ export default function Login() {
 
       <>
         <input name="email" placeholder="email" value={values.email} onChange={setValues} />
-        <input type="password" name="password" value={values.password} onChange={setValues} />
+        <input type="password" placeholder="password" name="password" value={values.password} onChange={setValues} />
       </>
     </div>
   );

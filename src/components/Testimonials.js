@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useFetch } from "./useFetch";
+import { useFetch } from "../_common/useFetch";
 
 export default function Testimonials() {
   const [count, setCount] = useState(() => JSON.parse(localStorage.getItem("count")));
