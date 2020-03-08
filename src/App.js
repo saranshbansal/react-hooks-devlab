@@ -1,40 +1,9 @@
 import React, { useState } from "react";
 import "./App.css";
-
-function Todo({ todo, index, completeTodo, unCompleteTodo, removeTodo }) {
-  return (
-    <div className="todo" style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}>
-      {todo.text}
-
-      <div>
-        {todo.isCompleted ? (
-          <button onClick={() => unCompleteTodo(index)}>UnCheck</button>
-        ) : (
-          <button onClick={() => completeTodo(index)}>Check</button>
-        )}
-
-        <button onClick={() => removeTodo(index)}>x</button>
-      </div>
-    </div>
-  );
-}
-
-function TodoForm({ addTodo }) {
-  const [value, setValue] = useState("");
-
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (!value) return;
-    addTodo(value);
-    setValue("");
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" className="input" value={value} onChange={e => setValue(e.target.value)} />
-    </form>
-  );
-}
+import Login from "./Login/Login";
+import Todo from "./Todo/Todo.jsx";
+import TodoForm from "./Todo/TodoForm";
+import Testimonials from "./Testimonials";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -77,7 +46,7 @@ function App() {
 
   return (
     <div className="app">
-      <h2 className="title"> To Do List</h2>
+      <h2 className="title">To Do List (useState hook)</h2>
       <div className="todo-list">
         {todos.map((todo, index) => (
           <Todo
@@ -91,6 +60,14 @@ function App() {
         ))}
         <TodoForm addTodo={addTodo} />
       </div>
+
+      <hr />
+
+      <Login />
+
+      <hr />
+
+      <Testimonials />
     </div>
   );
 }
