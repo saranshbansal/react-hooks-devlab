@@ -1,5 +1,6 @@
 import React from "react";
 import "../App.css";
+import KanyeQuotes from './KanyeQuotes';
 import Login from "./Login/Login";
 import Testimonials from "./Testimonials";
 import TodoList from "./Todo/TodoList";
@@ -16,6 +17,10 @@ function App() {
       <hr />
 
       <Testimonials />
+
+      <hr />
+
+      <KanyeQuotes />
     </div>
   );
 }
