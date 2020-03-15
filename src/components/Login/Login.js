@@ -11,7 +11,7 @@ export default function Login() {
 
   return (
     <div>
-      <h2 className="title">Login (useEffect)</h2>
+      <h2 className="title">Login (usEffect hook)</h2>
 
       <>
         <input name="email" placeholder="email" value={values.email} onChange={setValues} />

@@ -6,15 +6,15 @@ function TodoList() {
   const [todos, setTodos] = useState([
     {
       text: "Learn about React",
-      isCompleted: false
+      complete: false
     },
     {
       text: "Meet friend for lunch",
-      isCompleted: false
+      complete: false
     },
     {
       text: "Build really cool todo app",
-      isCompleted: false
+      complete: false
     }
   ]);
 
@@ -23,15 +23,9 @@ function TodoList() {
     setTodos(newTodos);
   };
 
-  const completeTodo = index => {
+  const toggleTodo = index => {
     const newTodos = [...todos];
-    newTodos[index].isCompleted = true;
-    setTodos(newTodos);
-  };
-
-  const unCompleteTodo = index => {
-    const newTodos = [...todos];
-    newTodos[index].isCompleted = false;
+    newTodos[index].complete = !newTodos[index].complete;
     setTodos(newTodos);
   };
 
@@ -46,14 +40,7 @@ function TodoList() {
       <h2 className="title">To Do List (useState hook)</h2>
       <div className="todo-list">
         {todos.map((todo, index) => (
-          <Todo
-            todo={todo}
-            key={index}
-            index={index}
-            completeTodo={completeTodo}
-            unCompleteTodo={unCompleteTodo}
-            removeTodo={removeTodo}
-          />
+          <Todo todo={todo} key={index} index={index} toggleTodo={toggleTodo} removeTodo={removeTodo} />
         ))}
         <TodoForm addTodo={addTodo} />
       </div>
